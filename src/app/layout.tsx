@@ -18,11 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex gap-6">
-          <div className=" w-80 h-screen p-4 bg-teal-50">
-            <h1 className="text-2xl font-bold mb-10 rounded px-2 w-fit text-teal-950">
-              drag-n-drop
-            </h1>
+        <div className="flex">
+          <div className="min-w-80 w-80 h-screen p-4 bg-main-50">
+            <div className="mb-10">
+              <p className="text-sm">
+                USE CASE
+              </p>
+              <h1 className="text-2xl font-bold rounded text-main-950">
+                drag-n-drop
+              </h1>
+            </div>
             <Navigation />
           </div>
           <div className="flex-1">
