@@ -6,7 +6,7 @@ export interface ITagProps {
 
 export default function Tag({ children }: ITagProps) {
   return (
-    <div className="px-3 rounded-full bg-main-500 text-main-50">
+    <div className="px-3 rounded-full bg-gradient-to-b from-main-500 to-main-400 text-main-50 text-sm">
       {children}
     </div>
   )
