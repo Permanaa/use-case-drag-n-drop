@@ -26,7 +26,7 @@ export default function Navigation() {
         const isActive = item.slug === pathname
         return (
           <li key={item.slug}>
-            <Link href={item.slug} className={`flex gap-2 px-4 py-3 rounded-lg font-semibold ${isActive ? "bg-main-500 text-main-50" : "text-main-950"}`}>
+            <Link href={item.slug} className={`flex gap-2 px-4 py-3 rounded-lg font-semibold ${isActive ? "bg-main-500 text-main-50 hover:bg-main-400" : "text-main-950 hover:bg-main-100"}`}>
               <item.icon className="w-6" />
               <p>{item.title}</p>
             </Link>
