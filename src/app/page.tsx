@@ -143,7 +143,7 @@ export default function Home() {
           <div>
             <form className="flex flex-col gap-4" onSubmit={onSubmit}>
               <div>
-                <label htmlFor="title" className="mb-2">Title<span className="text-red-600">*</span></label>
+                <label htmlFor="title">Title<span className="text-red-600">*</span></label>
                 <input
                   type="text"
                   id="title"
@@ -152,7 +152,7 @@ export default function Home() {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col">
                 <label htmlFor="description">Description</label>
                 <textarea
                   id="description"
@@ -161,7 +161,7 @@ export default function Home() {
                 ></textarea>
               </div>
               <div>
-                <label htmlFor="tags" className="mb-2">Tags <span className="text-sm">(separate with commas)</span></label>
+                <label htmlFor="tags">Tags <span className="text-sm">(separate with commas)</span></label>
                 <input
                   type="text"
                   id="tags"
