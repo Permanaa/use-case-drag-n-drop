@@ -1,7 +1,7 @@
 "use client"
 
 import Button from "@/components/button";
-import Card from "@/components/card";
+import Card from "@/components/kanban-card";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { XMark } from "@/icons/x-mark";
 import { DragEvent, FormEvent, useEffect, useState } from "react";
@@ -75,6 +75,11 @@ export default function Home() {
     e.currentTarget.reset()
   }
 
+  const onDelete = (id: string) => {
+    const newData = data.filter(item => item.id !== id)
+    setData(newData)
+  }
+
   useEffect(() => {
     setIsloading(false)
   }, [])
@@ -104,6 +109,7 @@ export default function Home() {
                       tags={item.tags}
                       description={item.description}
                       onDragStart={(e) => onDragStart(e, item.id)}
+                      onDelete={() => onDelete(item.id)}
                     />
                   )
                 }
