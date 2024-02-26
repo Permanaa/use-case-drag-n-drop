@@ -39,7 +39,7 @@ interface ICardData {
 export default function Home() {
   const [data, setData] = useLocalStorageState<ICardData[]>("kanban-data", [])
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
-  const [isLoading, setIsloading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const onDragOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -81,7 +81,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setIsloading(false)
+    setIsLoading(false)
   }, [])
 
   return (
