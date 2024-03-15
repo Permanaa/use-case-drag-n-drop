@@ -4,6 +4,7 @@ import Link from "next/link";
 import StackIcon from "@/icons/stack";
 import Stack3DIcon from "@/icons/stack-3d";
 import { usePathname } from "next/navigation";
+import DocumentArrowUp from "@/icons/document-arrow-up";
 
 const menu = [
   {
@@ -15,6 +16,11 @@ const menu = [
     title: "Sortable List",
     slug: "/sortable-list",
     icon: Stack3DIcon
+  },
+  {
+    title: "File",
+    slug: "/file",
+    icon: DocumentArrowUp,
   }
 ]
 
