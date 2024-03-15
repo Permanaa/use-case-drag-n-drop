@@ -2,6 +2,8 @@
 
 import Button from "@/components/button";
 import Card from "@/components/kanban-card";
+import Modal from "@/components/modal";
+import { useDisclosure } from "@/hooks/useDisclosure";
 import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { XMark } from "@/icons/x-mark";
 import { DragEvent, FormEvent, useEffect, useState } from "react";
@@ -38,8 +40,9 @@ interface ICardData {
 
 export default function Home() {
   const [data, setData] = useLocalStorageState<ICardData[]>("kanban-data", [])
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const onDragOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -71,7 +74,7 @@ export default function Home() {
       section: "todo",
     }
     setData(prev => ([...prev, newCard]))
-    setIsOpenModal(false)
+    onClose()
     e.currentTarget.reset()
   }
 
@@ -88,7 +91,7 @@ export default function Home() {
     <main className="py-4 min-w-0">
       <div className="flex justify-between mx-6">
         <h2 className="font-bold text-4xl mb-8">Kanban Board</h2>
-        <Button onClick={() => setIsOpenModal(true)}>Create</Button>
+        <Button onClick={onOpen}>Create</Button>
       </div>
 
       <div className="mx-6 grid grid-cols-[repeat(3,minmax(256px,1fr))] gap-4 py-4">
@@ -122,7 +125,7 @@ export default function Home() {
       {!isLoading && !data?.length && (
         <div className="flex flex-col justify-center items-center gap-6 h-56 my-6">
           <h5 className="text-4xl font-bold">👻 Empty</h5>
-          <Button onClick={() => setIsOpenModal(true)}>{"Let's create one"}</Button>
+          <Button onClick={onOpen}>{"Let's create one"}</Button>
         </div>
       )}
 
@@ -132,11 +135,11 @@ export default function Home() {
         </div>
       )}
 
-      <div tabIndex={-1} className={`${isOpenModal ? "" : "hidden"} overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full backdrop-blur`}>
+      <Modal isOpen={isOpen}>
         <div className="bg-main-50 rounded-xl p-4 relative min-w-96">
           <div className="flex justify-between mb-4">
             <h5 className="text-xl">Create Card</h5>
-            <button onClick={() => setIsOpenModal(false)}>
+            <button onClick={onClose}>
               <XMark />
             </button>
           </div>
@@ -174,7 +177,7 @@ export default function Home() {
             </form>
           </div>
         </div>
-      </div>
+      </Modal>
     </main>
   );
 }
