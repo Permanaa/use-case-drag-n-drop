@@ -42,7 +42,7 @@ export default function File() {
         <div
           onDragOver={onDragOver}
           onDrop={onDrop}
-          className={"flex flex-col gap-2 text-center items-center justify-center bg-main-50 border-main-600 border border-dashed rounded-lg p-6 h-32"}
+          className="flex flex-col gap-2 text-center items-center justify-center bg-main-50 border-main-700 border-2 border-dashed rounded-lg p-6 h-36 text-main-700"
         >
           <DocumentArrowUp strokeWidth={0.8} className="w-12" />
           <p>Drag one or more files here.</p>

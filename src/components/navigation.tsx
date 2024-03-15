@@ -5,6 +5,7 @@ import StackIcon from "@/icons/stack";
 import Stack3DIcon from "@/icons/stack-3d";
 import { usePathname } from "next/navigation";
 import DocumentArrowUp from "@/icons/document-arrow-up";
+import ArrowDownOnSquare from "@/icons/arrow-down-on-square";
 
 const menu = [
   {
@@ -21,6 +22,11 @@ const menu = [
     title: "File",
     slug: "/file",
     icon: DocumentArrowUp,
+  },
+  {
+    title: "Multi-Select",
+    slug: "/multi-select",
+    icon: ArrowDownOnSquare,
   }
 ]
 
